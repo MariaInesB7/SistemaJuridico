@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AbogadoController;
+use App\Http\Controllers\ExpedienteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,5 +25,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Route::post('store',['as'=>'abogado.store','uses'=> 'AbogadoController@store']);
 
 Route::resource('abogado',App\Http\Controllers\AbogadoController::class);
-
+Route::resource('expediente',App\Http\Controllers\ExpedienteController::class);
 
