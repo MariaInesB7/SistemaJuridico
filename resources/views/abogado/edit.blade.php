@@ -32,8 +32,8 @@
                         <h5>Sexo:</h5>
                         <select name="sexo" id="select-sexo"  class="focus border-primary  form-control">
                             <option value="{{$abogado->sexo}}">{{$abogado->sexo}}</option>
-                            <option value="F">Femenino</option>
-                            <option value="M">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Masculino">Masculino</option>
                         </select>
             
                     </div>

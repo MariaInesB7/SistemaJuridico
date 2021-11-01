@@ -24,19 +24,18 @@
                     <h3> Lista de abogados</h3>
                     <ul  class="list-group">
                         @foreach($abogado as $abogado)
-                        <li class="list-group-item clearfix">
-                            <dl>
+                       
+                            <dl class="list-group-item clearfix">
                                 
-                            <a target="_blank" >
-                         <!--  <a href="{{$abogado->nombre}}" target="_blank" style= "position: absolute;top:30%"> -->
                             <dt>  {{$abogado->nombre}} </dt>
-                            <span class="label label-default"> 
-                             <dd>   {{$abogado->telefono}} </dd>
-                                </span>
-                            </a>
-
+                        
+                                <dd> CI:  {{$abogado->ci}} </dd>
+                                <dd> Sexo:  {{$abogado->sexo}} </dd>
+                                <dd> Telefono:  {{$abogado->telefono}} </dd>
+                                <dd> Email:  {{$abogado->email}} </dd>
+                                <dd> Domicilio:  {{$abogado->domicilio}} </dd>
                             
-                             <span  class="pull-rigth button-group" style="float: right">
+                             <span  class="pull-rigth button-group" style="float: top">
                                 <form action="{{route('abogado.destroy',$abogado)}}" method="POST">
                                     @csrf
                                     @method('delete')
@@ -47,8 +46,8 @@
                                 <a href="{{route('abogado.edit',$abogado)}}"class="btn btn-info btn-sm">Editar</a>
 
                             </span> 
-                            </dl>
-                        </li>
+                        </dl>
+                        
                         @endforeach
                        
                     </ul>
@@ -78,9 +77,12 @@
                     <input type="text" class="form-control" name="nombre">
                   </div>
                   <div class="form-group">
-                    <label> Sexo </label>
-                    <input type="char" class="form-control" name="sexo">
-                  </div>
+                    <h5>Sexo:</h5>
+                    <select name="sexo" id="select-sexo"  class="focus border-primary  form-control">
+                        <option value="Femenino">Femenino</option>
+                        <option value="Masculino">Masculino</option>
+                    </select>
+        
                   <div class="form-group">
                     <label> Teléfono </label>
                     <input type="text" class="form-control" name="telefono">
