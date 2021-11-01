@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AbogadoController;
 use App\Http\Controllers\ExpedienteController;
+use App\Http\Controllers\ProcuradorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,4 +27,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('abogado',App\Http\Controllers\AbogadoController::class);
 Route::resource('expediente',App\Http\Controllers\ExpedienteController::class);
+Route::resource('procurador',App\Http\Controllers\ProcuradorController::class);
 
