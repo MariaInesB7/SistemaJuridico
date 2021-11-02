@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="min-width: 850px">
                 <div class="card-header">{{ __('clientes') }}</div>
 
                 <div class="card-body">

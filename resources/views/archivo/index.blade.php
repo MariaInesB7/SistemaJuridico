@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+            <div style="min-width: 900px" class="card">
+                <div  class="card-header">{{ __('Archivos') }}</div>
 
                 <div class="card-body">
                   <!--desde aqui empieza-->
@@ -25,28 +25,29 @@
                     <h3> Lista de archivos</h3>
                     <table class="table-fixed w-full" >
                     <thead>
-                        <tr class="bg-gray-800 text-black">
-                          <th style="display: none;">ID      </th>
+                        <tr class="bg-gray-800 text-black"> 
+                          <th class="border px-4 py-2">ID      </th>
                           <th class="border px-4 py-2">ID expediente </th>
                           <th class="border px-4 py-2">Descripcion  </th>
                           <th class="border px-4 py-2">Imagen     </th>
                           <th class="border px-4 py-2">Fecha      </th>
                           <th class="border px-4 py-2">Hora  </th>
                           <th class="border px-4 py-2">Acciones  </th>
-                         
-                          </tr>
+                        </tr>
+                          
                   </thead>
 
                   <tbody>
-                  
+                   
                     @foreach ($archivos as $archivo)
-                        <tr>
-                          <td>{{$archivo->id}}</td>
-                          <td>{{$archivo->descripcion}}</td>
+                    <tr class="bg-gray-800 text-black"> 
+                          <td class="border px-14 py-1">{{$archivo->id}}</td>
+                          <td class="border px-14 py-1">{{$archivo->id_Exp}}</td>
+                          <td class="border px-14 py-1">{{$archivo->descripcion}}</td>
                           
-                          <td> <img src="images/{{$archivo->imagen}}" width="100%" > </td>
-                          <td>{{$archivo->fecha}}</td>
-                          <td>{{$archivo->hora}}</td>
+                          <td class="border px-14 py-1"> <img src="images/{{$archivo->imagen}}" width="75%" > </td>
+                          <td class="border px-14 py-1">{{$archivo->fecha}}</td>
+                          <td class="border px-14 py-1">{{$archivo->hora}}</td>
                           <td class="border px-14 py-1">
                          
                             <form action="{{route('archivo.destroy',$archivo)}}" method="POST">
@@ -58,12 +59,20 @@
                             </form>
                             <a href="{{route('archivo.edit',$archivo)}}"class="btn btn-info btn-sm">Editar</a>
 
-                      </td>
+                              </td>
                         </tr>
                         @endforeach
-
+                        
+                     
+                    
                   </tbody>
                 </table>
+ {{-- Pagination --}}
+                <div class="d-flex justify-content-center" >
+               
+                  {!! $archivos->links("pagination::bootstrap-4") !!}
+                
+              </div>
                 </div>
             </div>
         </div>

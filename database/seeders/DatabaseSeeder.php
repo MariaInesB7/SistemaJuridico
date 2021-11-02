@@ -54,6 +54,16 @@ class DatabaseSeeder extends Seeder
         $cliente1->domicilio='Calle Tajibo';
         $cliente1->save();
 
+        $cliente2= new Cliente();
+
+        $cliente2->ci='165464';
+        $cliente2->nombre='Alejandra Barrientos';
+        $cliente2->sexo='Femenino';
+        $cliente2->telefono='74646266';
+        $cliente2->domicilio='Calle Robles';
+        $cliente2->save();
+
+
 
         $expediente1= new Expediente();
         $expediente1->id_Cliente='1';
@@ -65,16 +75,40 @@ class DatabaseSeeder extends Seeder
         $expediente1->tribunal='Juzgado publico niñez y adolescencia n4';
         $expediente1->juez='';
         $expediente1->secretario='Edvin Añez Llanos';
-        $expediente1->fecha='14/08/2019';
-        $expediente1->hora='15:30';
+        $expediente1->fecha='15/08/2020';
+        $expediente1->hora='18:30';
         $expediente1->save();
+
+        $expediente2= new Expediente();
+        $expediente2->id_Cliente='1';
+        $expediente2->causa='2019001';
+        $expediente2->codigo='F-M-2020';
+        $expediente2->proceso='Divorcio';
+        $expediente2->demandante='Gloria Peñaranda Calle';
+        $expediente2->demandado='Paul Mendez Mendez';     
+        $expediente2->juez='Mirtha Robles Zapata';
+        $expediente2->secretario='Edvin Añez Llanos';
+        $expediente2->fecha='14/09/2020';
+        $expediente2->hora='11:10';
+        $expediente2->save();
+
+      
+     
 
         $archivo1= new Archivo();
         $archivo1->id_Exp='1';
         $archivo1->descripcion='Nuevo';
-        $archivo1->imagen='C:\Users\MARINES\Downloads\WhatsApp Image 2021-10-28 at 02.15.49 (1).jpeg';
+        $archivo1->imagen='C:/xampp/htdocs/sistemaJur/public/images/20211102182356.jpg';
         $archivo1->fecha='21/10/20';
         $archivo1->hora='14:00';
        $archivo1->save();
-    }
+       
+       $archivo2= new Archivo();
+       $archivo2->id_Exp='2';
+       $archivo2->descripcion='Actualizacion';
+       $archivo2->imagen='C:/xampp/htdocs/sistemaJur/public/images/20211102194952.jpg';
+       $archivo2->fecha='21/10/20';
+       $archivo2->hora='14:00';
+      $archivo2->save();
+}
 }

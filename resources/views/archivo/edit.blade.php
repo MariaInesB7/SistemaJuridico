@@ -15,7 +15,7 @@
         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
             <h2>Editar archivo</h2>
                <div class="card">
-                <form method="POST" action="{{route('archivo.update',$archivo)}}" enctype="multipart/form-data" >
+                <form method="POST" action="{{route('archivo.update',$archivo->id)}}" enctype="multipart/form-data" >
                     @csrf
                     @method('PUT')
 
