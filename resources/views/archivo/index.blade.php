@@ -19,7 +19,7 @@
                     <button class="btn btn-primary btn-lg" data-toggle="modal"
                     data-target="#addModal" 
                     type="button"  name="button"> 
-                    Actualizar Archivo
+                    Actualizar Expediente
                     </button>
                     <hr>
                     <h3> Lista de archivos</h3>
@@ -44,21 +44,20 @@
                           <td>{{$archivo->id}}</td>
                           <td>{{$archivo->descripcion}}</td>
                           
-                          <td> <img src="/images/{{$archivo->imagen}}" width="60%" > </td>
+                          <td> <img src="images/{{$archivo->imagen}}" width="100%" > </td>
                           <td>{{$archivo->fecha}}</td>
                           <td>{{$archivo->hora}}</td>
                           <td class="border px-14 py-1">
-                          <span  class="pull-rigth button-group" style="float: top">
+                         
                             <form action="{{route('archivo.destroy',$archivo)}}" method="POST">
                                 @csrf
                                 @method('delete')
-                             <input type="submit" name="submit" value="Eliminar" class="btn btn-danger" style="float: right">   
+                             <input type="submit" name="submit" value="Eliminar" class="btn btn-danger" >   
                             
                             
                             </form>
                             <a href="{{route('archivo.edit',$archivo)}}"class="btn btn-info btn-sm">Editar</a>
 
-                        </span> 
                       </td>
                         </tr>
                         @endforeach
@@ -99,6 +98,7 @@
               </div>
               <div class="form-group">
                 <label> Imagen </label>
+                
                 <input type="file" name="imagen"  id="imagen" class="hidden">
               </div>
               <div class="form-group">

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Cliente;
 use App\Models\Expediente;
 use App\Models\Abogado;
+use App\Models\Archivo;
 use App\Models\Procurador;
 use Illuminate\Database\Seeder;
 use App\Models\User;
@@ -68,5 +69,12 @@ class DatabaseSeeder extends Seeder
         $expediente1->hora='15:30';
         $expediente1->save();
 
+        $archivo1= new Archivo();
+        $archivo1->id_Exp='1';
+        $archivo1->descripcion='Nuevo';
+        $archivo1->imagen='C:\Users\MARINES\Downloads\WhatsApp Image 2021-10-28 at 02.15.49 (1).jpeg';
+        $archivo1->fecha='21/10/20';
+        $archivo1->hora='14:00';
+       $archivo1->save();
     }
 }

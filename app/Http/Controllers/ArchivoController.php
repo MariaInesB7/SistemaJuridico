@@ -46,17 +46,16 @@ class ArchivoController extends Controller
      */
     public function store(Request $request)
     {
-      
         $request->validate([
 
             'id_Exp' => 'required','descripcion' => 'required', 
-             'imagen' => 'required | image | mimes: jpeg, png,svg/max: 1024 ',
+             'imagen' => 'required |image| mimes:jpeg,png,svg|max: 1024 ',
             'fecha' => 'required','hora' => 'required'
          ]);
             
             $archivo= $request->all();
             
-            if($imagen= $request->file('imagen')) {
+            if($imagen = $request->file('imagen')) {
             
             $rutaGuardarImg='images/';
             
@@ -67,6 +66,7 @@ class ArchivoController extends Controller
             }
             
             Archivo::create($archivo);
+          
             return redirect()->route('archivo.index');
 
     }
@@ -91,6 +91,8 @@ class ArchivoController extends Controller
     public function edit(Archivo $archivo)
     {
         //
+        $expedientes= DB::table('expedientes')->get();
+        return view('archivo.edit',compact('archivo'),['expedientes'=>$expedientes]);
     }
 
     /**
@@ -103,6 +105,27 @@ class ArchivoController extends Controller
     public function update(Request $request, Archivo $archivo)
     {
         //
+        $request->validate([
+        
+            'id_Exp' => 'required','descripcion' => 'required', 
+             'imagen' => 'required |image| mimes:jpeg,png,svg|max: 1024 ',
+            'fecha' => 'required','hora' => 'required'
+        ]);
+
+        $archivoN = $request->all();
+         if($imagen = $request->file('imagen'))
+         {
+            $rutaGuardarImg = 'images/';
+            $imagenArch = date('YmdHis') . "." . $imagen->getClientOriginalExtension(); 
+            $imagen->move($rutaGuardarImg, $imagenArch);
+            $archivoN['imagen'] = "$imagenArch";
+         }else{
+            unset($archivoN['imagen']);
+         }
+
+         $archivo->update($archivoN);
+
+         return redirect()->route('archivo.index');
     }
 
     /**
@@ -114,5 +137,7 @@ class ArchivoController extends Controller
     public function destroy(Archivo $archivo)
     {
         //
+        $archivo->delete();
+        return redirect()->route('archivo.index');
     }
 }
