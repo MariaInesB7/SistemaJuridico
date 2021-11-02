@@ -14,7 +14,8 @@ class CreateExpedientesTable extends Migration
     public function up()
     {
         Schema::create('expedientes', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_Cliente');
             $table->string('causa');
             $table->string('codigo');
             $table->string('proceso');
@@ -25,8 +26,10 @@ class CreateExpedientesTable extends Migration
             $table->string('secretario');
             $table->string('fecha');
             $table->string('hora');
+            $table->foreign('id_Cliente')->references('id')->on('clientes')->onDelete('cascade')->onUpdate('cascade');
+
             $table->timestamps();
-        });
+			});
     }
 
     /**

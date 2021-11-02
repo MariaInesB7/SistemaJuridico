@@ -27,14 +27,14 @@
                        
                             <dl class="list-group-item clearfix">
                                 
-                            <dt>  {{$abogado->nombre}} </dt>
-                        
-                                <dd> CI:  {{$abogado->ci}} </dd>
-                                <dd> Sexo:  {{$abogado->sexo}} </dd>
-                                <dd> Telefono:  {{$abogado->telefono}} </dd>
-                                <dd> Email:  {{$abogado->email}} </dd>
-                                <dd> Domicilio:  {{$abogado->domicilio}} </dd>
                             
+                            <dt style="float: right">  {{$abogado->ci}} </dt>
+                            <dt>  {{$abogado->nombre}} </dt>   
+                               
+                                <dd style="float: right"> Telefono:  {{$abogado->telefono}} </dd>
+                                <dd> Email:  {{$abogado->email}} </dd>
+                                <dd style="float: right"> Sexo:  {{$abogado->sexo}} </dd>
+                                <dd > Domicilio:  {{$abogado->domicilio}} </dd>
                              <span  class="pull-rigth button-group" style="float: top">
                                 <form action="{{route('abogado.destroy',$abogado)}}" method="POST">
                                     @csrf

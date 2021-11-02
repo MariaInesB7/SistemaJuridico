@@ -45,6 +45,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('expediente.index') }}">{{ __('Expediente') }}</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('cliente.index') }}">{{ __('Cliente') }}</a>
+                                </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('archivo.index') }}">{{ __('Archivo') }}</a>
+                                </li>
                       
                     </ul>
 

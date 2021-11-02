@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Expediente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ExpedienteController extends Controller
 {
@@ -21,7 +22,8 @@ class ExpedienteController extends Controller
     {
         //
         $expediente=Expediente::all();
-        return view('expediente.index',compact('expediente'));
+        $clientes= DB::table('clientes')->get();
+        return view('expediente.index',compact('expediente'),['clientes'=>$clientes]);
     }
 
     /**
@@ -43,7 +45,9 @@ class ExpedienteController extends Controller
     public function store(Request $request)
     {
         //
+  
         $expediente=new Expediente;
+        $expediente->id_Cliente=$request->input('id_Cliente');
         $expediente->causa=$request->input('causa');
         $expediente->codigo=$request->input('codigo');
         $expediente->proceso=$request->input('proceso');
@@ -56,8 +60,8 @@ class ExpedienteController extends Controller
         $expediente->hora=$request->input('hora');
        // $expediente->userID=auth()->user()->id;
         $expediente->save();
-        
-        return redirect()->route('expediente.index');
+
+       return redirect()->route('expediente.index');
     }
 
     /**
@@ -79,7 +83,8 @@ class ExpedienteController extends Controller
      */
     public function edit(Expediente $expediente)
     {
-        return view('expediente.edit',compact('expediente'));
+        $clientes= DB::table('clientes')->get();
+        return view('expediente.edit',compact('expediente'),['clientes'=>$clientes]);
     }
 
     /**
@@ -91,6 +96,7 @@ class ExpedienteController extends Controller
      */
     public function update(Request $request, Expediente $expediente)
     {
+        $expediente->id_Cliente=$request->id_Cliente;
         $expediente->causa=$request->causa;
         $expediente->codigo=$request->codigo;
         $expediente->proceso=$request->proceso;

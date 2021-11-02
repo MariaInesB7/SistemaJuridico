@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Expediente extends Model
+class Cliente extends Model
 {
     use HasFactory;
-    protected $table="expedientes";
+    protected $table="clientes";
     protected $guarded=['id','created_at','updated_at'];
 
-    public function clientes(){
+    //Relacion uno a muchos
 
-        return $this->belongsToMany('App\Models\Cliente') ;   
-        }
 }
- 
+
+

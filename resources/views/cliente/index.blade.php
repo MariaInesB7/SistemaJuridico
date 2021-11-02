@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -5,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Procuradores') }}</div>
+                <div class="card-header">{{ __('clientes') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,32 +19,33 @@
                     <button class="btn btn-primary btn-lg" data-toggle="modal"
                     data-target="#addModal" 
                     type="button"  name="button"> 
-                    Agregar Procurador 
+                    Agregar cliente 
                     </button>
                     <hr>
-                    <h3> Lista de Procuradores</h3>
+                    <h3> Lista de clientes</h3>
                     <ul  class="list-group">
-                        @foreach($procurador as $procurador)
+                        @foreach($cliente as $cliente)
                        
                             <dl class="list-group-item clearfix">
+                              <dt style="float: right">   CI:  {{$cliente->ci}} </dt>
+                            <dt>  {{$cliente->nombre}} </dt>
+                          
                                 
-                              <dt style="float: right">  {{$procurador->ci}} </dt>
-                              <dt>  {{$procurador->nombre}} </dt>   
-                                 
-                                  <dd style="float: right"> Telefono:  {{$procurador->telefono}} </dd>
-                                  <dd> Email:  {{$procurador->email}} </dd>
-                                  <dd style="float: right"> Sexo:  {{$procurador->sexo}} </dd>
-                                  <dd > Domicilio:  {{$procurador->domicilio}} </dd>
+                             
+                               
+                                <dd style="float: right"> Domicilio:  {{$cliente->domicilio}} </dd>
+                                <dd> Telefono:  {{$cliente->telefono}} </dd>
+                                <dd> Sexo:  {{$cliente->sexo}} </dd>
                             
                              <span  class="pull-rigth button-group" style="float: top">
-                                <form action="{{route('procurador.destroy',$procurador)}}" method="POST">
+                                <form action="{{route('cliente.destroy',$cliente)}}" method="POST">
                                     @csrf
                                     @method('delete')
                                  <input type="submit" name="submit" value="Eliminar" class="btn btn-danger" style="float: right">   
                                 
                                 
                                 </form>
-                                <a href="{{route('procurador.edit',$procurador)}}"class="btn btn-info btn-sm">Editar</a>
+                                <a href="{{route('cliente.edit',$cliente)}}"class="btn btn-info btn-sm">Editar</a>
 
                             </span> 
                         </dl>
@@ -63,12 +65,14 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Agregar procurador</h4>
+          <h4 class="modal-title">Agregar cliente</h4>
         </div>
         <div class="modal-body">
-          <form  action="{{route('procurador.store')}}" method="POST">
+          <form  action="{{route('cliente.store')}}" method="POST">
               {{ csrf_field() }}
-              <div class="form-group">
+              
+
+                <div class="form-group">
                   <label> CI </label>
                   <input type="text" class="form-control" name="ci">
                 </div>
@@ -87,10 +91,7 @@
                     <label> Teléfono </label>
                     <input type="text" class="form-control" name="telefono">
                   </div>
-                  <div class="form-group">
-                    <label> Email </label>
-                    <input type="text" class="form-control" name="email">
-                  </div>
+                  
                   <div class="form-group">
                     <label> Domicilio </label>
                     <input type="text" class="form-control" name="domicilio">

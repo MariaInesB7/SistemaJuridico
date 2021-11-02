@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Expediente extends Model
+class Archivo extends Model
 {
     use HasFactory;
-    protected $table="expedientes";
+    protected $table="archivos";
     protected $guarded=['id','created_at','updated_at'];
 
-    public function clientes(){
+    public function expedientes(){
 
-        return $this->belongsToMany('App\Models\Cliente') ;   
+        return $this->belongsToMany('App\Models\Expediente') ;   
         }
 }
- 

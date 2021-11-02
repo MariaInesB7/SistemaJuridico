@@ -20,6 +20,18 @@
                     @method('PATCH')
                   
                     <div class="row justify-content-between text-left">
+                        <h5>Cliente:</h5>
+                        <select name = "id_Cliente" id="idCliente" class="form-control" onchange="habilitar()" >
+                            <option value="nulo">Seleccione el cliente</option>
+                                @foreach ($clientes as $cliente)
+                                    <option value="{{$cliente->id}}">
+                                        {{$cliente->nombre}}
+                                    </option>
+                                @endforeach
+                        </select>
+                       </div>
+
+                    <div class="row justify-content-between text-left">
                         <h5>Causa:</h5>
                 <input type="text"  name="causa" value="{{$expediente->causa}}" class="focus border-primary  form-control" >
                     </div>

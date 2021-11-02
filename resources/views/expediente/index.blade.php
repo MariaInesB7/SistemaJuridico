@@ -27,17 +27,27 @@
                        
                             <dl class="list-group-item clearfix">
                                 
-                            <dt>  {{$expediente->causa}} </dt>
-                        
-                                <dd> Código:  {{$expediente->codigo}} </dd>
-                                <dd> Proceso:  {{$expediente->proceso}} </dd>
-                                <dd> Demandante:  {{$expediente->demandante}} </dd>
-                                <dd> Demandado:  {{$expediente->demandado}} </dd>
+                            <dt>  Causa: {{$expediente->causa}} </dt>
+                           
+                           <dd>  Código:  {{$expediente->codigo}}  </dd>
+                                
+                                @foreach ($clientes as $cliente)
+                            
+                                <dd style="float: right" value="{{$cliente->id}}" > 
+                                  Cliente: {{$cliente->nombre}} </dd>
+                                @endforeach
+                             
+                                <dd > Proceso:  {{$expediente->proceso}} </dd>
+                                
+                                <dd style="float: right "> Demandado:  {{$expediente->demandado}} </dd>
+                                <dd > Demandante :  {{$expediente->demandante}} </dd>
+                                <dd style="float: right "> Juez:  {{$expediente->juez}} </dd>
                                 <dd> Tribunal:  {{$expediente->tribunal}} </dd>
-                                <dd> Juez:  {{$expediente->juez}} </dd>
+                                
                                 <dd> Secretario:  {{$expediente->secretario}} </dd>
+                                
+                                <dd style="float: right "> Hora:  {{$expediente->hora}} </dd>
                                 <dd> Fecha de ingreso:  {{$expediente->fecha}} </dd>
-                                <dd> Hora:  {{$expediente->hora}} </dd>
                              <span  class="pull-rigth button-group" style="float: top">
                                 <form action="{{route('expediente.destroy',$expediente)}}" method="POST">
                                     @csrf
@@ -71,6 +81,18 @@
         <div class="modal-body">
           <form  action="{{route('expediente.store')}}" method="POST">
               {{ csrf_field() }}
+              <div class="form-group">
+                <h5>Cliente:</h5>
+            <select name = "id_Cliente" id="idMarca" class="form-control" onchange="habilitar()" >
+                <option value="nulo">Seleccione el cliente</option>
+                    @foreach ($clientes as $cliente)
+                        <option value="{{$cliente->id}}">
+                            {{$cliente->nombre}}
+                        </option>
+                    @endforeach
+            </select>
+              </div>
+
               <div class="form-group">
                   <label> Causa </label>
                   <input type="text" class="form-control" name="causa">
