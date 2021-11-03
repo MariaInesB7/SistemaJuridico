@@ -19,11 +19,28 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        $user1 = new User();
+        $user1->name = 'Lisa Martinez';
+        $user1->email= 'lisa@gmail.com';
+        $user1->password = bcrypt('12345');
+        $user1->rol='abogado';
+        $user1->save();
+
+        $user2 = new User();
+        $user2->name = 'Yuliana Barrios';
+        $user2->email= 'yuliana@gmail.com';
+        $user2->password = bcrypt('12345');
+        $user2->rol='procurador';
+        $user2->save();
+
+       
+
+
         $user4 = new User();
         $user4->name = 'admin';
         $user4->email= 'admin@gmail.com';
         $user4->password = bcrypt('admin');
-        
+        $user4->rol='admin';
         $user4->save();
 
         $abogado1= new Abogado();
@@ -98,7 +115,7 @@ class DatabaseSeeder extends Seeder
         $archivo1= new Archivo();
         $archivo1->id_Exp='1';
         $archivo1->descripcion='Nuevo';
-        $archivo1->imagen='C:/xampp/htdocs/sistemaJur/public/images/20211102182356.jpg';
+        $archivo1->imagen='20211102182356.jpg';
         $archivo1->fecha='21/10/20';
         $archivo1->hora='14:00';
        $archivo1->save();
@@ -106,7 +123,7 @@ class DatabaseSeeder extends Seeder
        $archivo2= new Archivo();
        $archivo2->id_Exp='2';
        $archivo2->descripcion='Actualizacion';
-       $archivo2->imagen='C:/xampp/htdocs/sistemaJur/public/images/20211102194952.jpg';
+       $archivo2->imagen='20211102194952.jpg';
        $archivo2->fecha='21/10/20';
        $archivo2->hora='14:00';
       $archivo2->save();

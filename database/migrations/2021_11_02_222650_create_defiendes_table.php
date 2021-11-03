@@ -14,7 +14,13 @@ class CreateDefiendesTable extends Migration
     public function up()
     {
         Schema::create('defiendes', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('id_Abg');
+            $table->unsignedBigInteger('id_Exp');
+            $table->string('fecha');
+            $table->foreign('id_Abg')->references('id')->on('abogados')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_Exp')->references('id')->on('expedientes')->onDelete('cascade')->onUpdate('cascade');
+            
             $table->timestamps();
         });
     }

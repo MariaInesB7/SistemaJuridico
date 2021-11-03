@@ -16,7 +16,7 @@ class ClienteController extends Controller
      */
     public function __construct()
     {
-     $this->middleware('auth');   
+     $this->middleware('auth.abog');   
     }
 
     public function index(Expediente $expedientes)

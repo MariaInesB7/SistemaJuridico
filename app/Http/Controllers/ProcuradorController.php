@@ -14,7 +14,7 @@ class ProcuradorController extends Controller
      */
     public function __construct()
     {
-     $this->middleware('auth');   
+     $this->middleware('auth.abog');   
     }
 
     public function index()
@@ -42,6 +42,7 @@ class ProcuradorController extends Controller
     public function store(Request $request)
     {
         //
+        date_default_timezone_set("America/La_Paz");
         $procurador=new Procurador;
         $procurador->ci=$request->input('ci');
         $procurador->nombre=$request->input('nombre');
@@ -89,6 +90,7 @@ class ProcuradorController extends Controller
     public function update(Request $request, Procurador $procurador)
     {
         //
+        date_default_timezone_set("America/La_Paz");
         $procurador->ci=$request->ci;
         $procurador->nombre=$request->nombre;
         $procurador->sexo=$request->sexo;

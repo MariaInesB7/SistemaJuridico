@@ -15,7 +15,8 @@ class ArchivoController extends Controller
      */
     public function __construct()
     {
-     $this->middleware('auth');   
+        $this->middleware(['auth.proc']);   
+     
     }
 
     public function index()
@@ -46,6 +47,7 @@ class ArchivoController extends Controller
      */
     public function store(Request $request)
     {
+        date_default_timezone_set("America/La_Paz");
         $request->validate([
 
             'id_Exp' => 'required','descripcion' => 'required', 
@@ -105,6 +107,7 @@ class ArchivoController extends Controller
     public function update(Request $request, Archivo $archivo)
     {
         //
+        date_default_timezone_set("America/La_Paz");
         $request->validate([
         
             'id_Exp' => 'required','descripcion' => 'required', 

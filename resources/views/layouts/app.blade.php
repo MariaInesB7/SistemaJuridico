@@ -24,10 +24,9 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <!--Aqui la navegacion
-                    {{ config('app.name', 'Sistema Juridico') }}
-                    
-                    <a class="nav-link" href="{{ route('abogado.index') }}">{{ __('Abogado') }}</a> -->
+                    <!--Aqui la navegacion-->
+                   {{ __('Sistema Juridico') }}
+                   
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -35,24 +34,38 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                  
                     <ul class="navbar-nav mr-auto">
+                        
+                       
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrar') }}</a>
+                            </li>
+                        
+                    
                         <li class="nav-item">
                         <a class="nav-link" href="{{ route('abogado.index') }}">{{ __('Abogado') }}</a>
                         </li>
+                     
+                       
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('procurador.index') }}">{{ __('Procurador') }}</a>
                             </li>
+
+                    
+                      
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('expediente.index') }}">{{ __('Expediente') }}</a>
                             </li>
-
+                   
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('cliente.index') }}">{{ __('Cliente') }}</a>
                                 </li>
+                   
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('archivo.index') }}">{{ __('Archivo') }}</a>
                                 </li>
-                      
+                  
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -65,11 +78,7 @@
                                 </li>
                             @endif
 
-                          <!--  @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrar') }}</a>
-                                </li>
-                            @endif-->
+                       
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -90,6 +99,7 @@
                             </li>
                         @endguest
                     </ul>
+                   
                 </div>
             </div>
         </nav>

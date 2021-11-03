@@ -15,5 +15,9 @@ class Expediente extends Model
 
         return $this->belongsToMany('App\Models\Cliente') ;   
         }
+        
+        public function abogados(){
+            return $this->belongsToMany('App\Models\Abogado');
+        }
 }
  

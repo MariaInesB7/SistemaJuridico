@@ -41,11 +41,7 @@
                     </div>
                     <div class="row justify-content-between text-left">
                         <h5>Proceso:</h5>
-                        <select name="proceso" id="select-sexo"  class="focus border-primary  form-control">
-                            <option value="{{$expediente->proceso}}">{{$expediente->proceso}}</option>
-                            <option value="Femenino">Femenino</option>
-                            <option value="Masculino">Masculino</option>
-                        </select>
+                        <input type="text" name="demandante" value="{{$expediente->proceso}}"  class="focus border-primary  form-control" >
             
                     </div>
                     <div class="row justify-content-between text-left">

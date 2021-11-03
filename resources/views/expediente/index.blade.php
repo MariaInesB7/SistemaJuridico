@@ -26,16 +26,16 @@
                         @foreach($expediente as $expediente)
                        
                             <dl class="list-group-item clearfix">
-                                
+                              <dt style="float: right">  ID: {{$expediente->id}} </dt>
                             <dt>  Causa: {{$expediente->causa}} </dt>
                            
                            <dd>  Código:  {{$expediente->codigo}}  </dd>
                                 
-                                @foreach ($clientes as $cliente)
+                               
                             
-                                <dd style="float: right" value="{{$cliente->id}}" > 
-                                  Cliente: {{$cliente->nombre}} </dd>
-                                @endforeach
+                                <dd style="float: right" > 
+                                  Cliente: {{DB::table('clientes')->where('id',$expediente->id_Cliente)->value('nombre')}} </dd>
+                                
                              
                                 <dd > Proceso:  {{$expediente->proceso}} </dd>
                                 
@@ -57,7 +57,8 @@
                                 
                                 </form>
                                 <a href="{{route('expediente.edit',$expediente)}}"class="btn btn-info btn-sm">Editar</a>
-
+                                
+                                
                             </span> 
                         </dl>
                         
@@ -103,10 +104,7 @@
                   </div>
                   <div class="form-group">
                     <h5>Proceso</h5>
-                    <select name="proceso" id="select-sexo"  class="focus border-primary  form-control">
-                        <option value="Femenino">Femenino</option>
-                        <option value="Masculino">Masculino</option>
-                    </select>
+                    <input type="text" class="form-control" name="proceso">
         
                   <div class="form-group">
                     <label> Demandante </label>

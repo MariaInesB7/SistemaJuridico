@@ -14,7 +14,7 @@ class AbogadoController extends Controller
      */
     public function __construct()
     {
-     $this->middleware('auth');   
+     $this->middleware('auth.admi');   
     }
 
 
@@ -43,6 +43,7 @@ class AbogadoController extends Controller
      */
     public function store(Request $request)
     {
+        date_default_timezone_set("America/La_Paz");
         $abogado=new Abogado;
         $abogado->ci=$request->input('ci');
         $abogado->nombre=$request->input('nombre');
@@ -88,7 +89,7 @@ class AbogadoController extends Controller
      */
     public function update(Request $request, Abogado $abogado)
     {
-       
+        date_default_timezone_set("America/La_Paz");
         $abogado->ci=$request->ci;
         $abogado->nombre=$request->nombre;
         $abogado->sexo=$request->sexo;

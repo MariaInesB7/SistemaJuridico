@@ -1,0 +1,15 @@
+.prueba{
+    color: rgb(255, 254, 253);
+    background-color: rgb(196, 118, 29);
+    background-image: url("https://images.pexels.com/photos/5668792/pexels-photo-5668792.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    min-width: 800px; 
+    min-height: 800px;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    font: 50px Times, sans-serif;
+    font-weight:bolder;
+    display:flex;    
+    align-items:center;
+}
+

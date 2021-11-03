@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Defiende;
 use App\Models\Expediente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,15 +16,17 @@ class ExpedienteController extends Controller
      */
     public function __construct()
     {
-     $this->middleware('auth');   
+     $this->middleware('auth.abog');   
     }
 
     public function index()
     {
         //
         $expediente=Expediente::all();
+        
         $clientes= DB::table('clientes')->get();
-        return view('expediente.index',compact('expediente'),['clientes'=>$clientes]);
+        $defiende= DB::table('defiendes')->get();
+        return view('expediente.index',compact('expediente'),['clientes'=>$clientes],['defiendes'=>$defiende]);
     }
 
     /**
@@ -45,7 +48,7 @@ class ExpedienteController extends Controller
     public function store(Request $request)
     {
         //
-  
+        date_default_timezone_set("America/La_Paz");
         $expediente=new Expediente;
         $expediente->id_Cliente=$request->input('id_Cliente');
         $expediente->causa=$request->input('causa');
@@ -61,7 +64,7 @@ class ExpedienteController extends Controller
        // $expediente->userID=auth()->user()->id;
         $expediente->save();
 
-       return redirect()->route('expediente.index');
+       return redirect()->route('expediente.index',$expediente);
     }
 
     /**
@@ -96,6 +99,7 @@ class ExpedienteController extends Controller
      */
     public function update(Request $request, Expediente $expediente)
     {
+        date_default_timezone_set("America/La_Paz");
         $expediente->id_Cliente=$request->id_Cliente;
         $expediente->causa=$request->causa;
         $expediente->codigo=$request->codigo;
