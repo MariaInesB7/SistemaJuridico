@@ -14,7 +14,7 @@ class AbogadoController extends Controller
      */
     public function __construct()
     {
-     $this->middleware('auth.admi');   
+     $this->middleware('auth.abog');   
     }
 
 

@@ -65,7 +65,14 @@
                             <label for="rol" class="col-md-4 col-form-label text-md-right">{{ __('Rol') }}</label>
 
                             <div class="col-md-6">
-                                <input id="rol" type="text" class="form-control" name="rol" >
+                            
+                                <select name="rol" id="rol"  class="focus border-primary  form-control">
+                                    <option value="abogado">abogado</option>
+                                    <option value="procurador">procurador</option>
+                                </select>
+
+
+                        
                             </div>
                         </div>
 
