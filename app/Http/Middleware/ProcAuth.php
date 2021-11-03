@@ -17,7 +17,7 @@ class ProcAuth
     public function handle(Request $request, Closure $next)
     {
         if(auth()->check()){
-           if (auth()->user()->rol=='procurador' or auth()->user()->rol=='abogado'){
+           if (auth()->user()->rol=='procurador' ){
            
             return $next($request);
         }

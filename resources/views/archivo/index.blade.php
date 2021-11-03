@@ -19,7 +19,7 @@
                     <button class="btn btn-primary btn-lg" data-toggle="modal"
                     data-target="#addModal" 
                     type="button"  name="button"> 
-                    Actualizar Expediente
+                   Subir documento
                     </button>
                     <hr>
                     <h3> Lista de archivos</h3>
@@ -57,6 +57,7 @@
                             
                             
                             </form>
+                            
                             <a href="{{route('archivo.edit',$archivo)}}"class="btn btn-info btn-sm">Editar</a>
 
                               </td>

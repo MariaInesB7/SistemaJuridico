@@ -40,7 +40,7 @@
 
                         </div>
                             <div class="grid grid-cols-1 mt-5 mx-7">
-                                <img src= "/images/{{$archivo->imagen}}" id="imagenSeleccionada" style="max-width: 300px">
+                                <img src= "/sistemaJur/public/images/{{$archivo->imagen}}" id="imagenSeleccionada" style="max-width: 300px">
                             </div>   
 
                             <div class="grid grid-cols-1 mt-5 mx-7">

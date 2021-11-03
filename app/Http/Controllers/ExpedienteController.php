@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Archivo;
 use App\Models\Defiende;
 use App\Models\Expediente;
 use Illuminate\Http\Request;
@@ -76,6 +77,9 @@ class ExpedienteController extends Controller
     public function show(Expediente $expediente)
     {
         //
+       
+        $archivos=Archivo::paginate(5);
+        return view('expediente.show',compact($expediente),['archivos'=>$archivos]);
     }
 
     /**

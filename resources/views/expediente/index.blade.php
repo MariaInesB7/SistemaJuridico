@@ -20,11 +20,13 @@
                     type="button"  name="button"> 
                     Agregar Expediente
                     </button>
+                    @foreach($expediente as $expediente)
+                    <a href="{{route('expediente.show',$expediente)}}" style="float:right" class="btn btn-info btn-sm">Ver documentos</a>
                     <hr>
                     <h3> Lista de expediente</h3>
                     <ul  class="list-group">
-                        @foreach($expediente as $expediente)
                        
+                      
                             <dl class="list-group-item clearfix">
                               <dt style="float: right">  ID: {{$expediente->id}} </dt>
                             <dt>  Causa: {{$expediente->causa}} </dt>

@@ -15,7 +15,7 @@ class ArchivoController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth.proc']);   
+        $this->middleware(['auth.proc']);  
      
     }
 
@@ -68,7 +68,7 @@ class ArchivoController extends Controller
             }
             
             Archivo::create($archivo);
-          
+           
             return redirect()->route('archivo.index');
 
     }
@@ -94,6 +94,7 @@ class ArchivoController extends Controller
     {
         //
         $expedientes= DB::table('expedientes')->get();
+        
         return view('archivo.edit',compact('archivo'),['expedientes'=>$expedientes]);
     }
 
@@ -107,6 +108,7 @@ class ArchivoController extends Controller
     public function update(Request $request, Archivo $archivo)
     {
         //
+        
         date_default_timezone_set("America/La_Paz");
         $request->validate([
         
@@ -127,7 +129,7 @@ class ArchivoController extends Controller
          }
 
          $archivo->update($archivoN);
-
+      
          return redirect()->route('archivo.index');
     }
 
@@ -140,6 +142,7 @@ class ArchivoController extends Controller
     public function destroy(Archivo $archivo)
     {
         //
+   
         $archivo->delete();
         return redirect()->route('archivo.index');
     }
